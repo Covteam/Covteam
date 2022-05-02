@@ -1,6 +1,6 @@
 # 西华大学Covteam战队主页
 
-https://C0vt3am.github.io/covteam/
+https://C0vt3am.github.io/Covteam/
 
 西华大学网络安全兴趣小组（Covteam）成立于2005年。以西华大学在校本科生、研究生为主力，依托于西华大学网络安全实验室，实验室主要负责网络和安全方向的研究，是培养我校在网络安全领域全面发展的人才的摇篮。
 
