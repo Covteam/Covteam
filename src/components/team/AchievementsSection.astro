@@ -1,0 +1,28 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+	items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section section-highlight" id="honor">
+	<SectionHeading
+		kicker="Honors"
+		title="历史得奖"
+		description="这些成绩来自一届又一届成员的训练、协作与沉淀。"
+	/>
+
+	<div class="achievement-list">
+		{
+			items.map((item) => (
+				<div class="achievement-item">
+					<span class="achievement-dot" aria-hidden="true"></span>
+					<p>{item}</p>
+				</div>
+			))
+		}
+	</div>
+</section>

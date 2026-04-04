@@ -1,0 +1,138 @@
+---
+const links = [
+	{ href: '#top', label: '团队主页' },
+	{ href: '#directions', label: '研究方向' },
+	{ href: '#honor', label: '历史得奖' },
+	{ href: '#member', label: '现役成员' },
+	{ href: '#lookfor', label: '招新招募' },
+	{ href: '#retired', label: '退役成员' },
+];
+---
+
+<header class="site-nav">
+	<div class="container">
+		<a class="brand" href="#top" aria-label="Covteam 网络安全实验室">
+			<img src="/img/Covteam_logo1.png" alt="Covteam 网络安全实验室" />
+			<div class="brand-copy">
+				<strong>Covteam</strong>
+				<span>网络安全实验室</span>
+			</div>
+		</a>
+
+		<nav aria-label="主导航">
+			<ul>
+				{
+					links.map((link) => (
+						<li>
+							<a href={link.href}>{link.label}</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.site-nav {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		backdrop-filter: blur(18px);
+		background: rgba(4, 11, 21, 0.72);
+		border-bottom: 1px solid rgba(150, 190, 255, 0.14);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 14px 24px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+	}
+
+	.brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		text-decoration: none;
+		min-width: 0;
+	}
+
+	.brand img {
+		width: 44px;
+		height: 44px;
+		object-fit: contain;
+		filter: drop-shadow(0 10px 24px rgba(56, 189, 248, 0.2));
+	}
+
+	.brand-copy {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+	}
+
+	.brand-copy strong {
+		font-size: 1rem;
+		letter-spacing: 0.08em;
+	}
+
+	.brand-copy span {
+		font-size: 0.82rem;
+		color: rgba(230, 237, 247, 0.72);
+	}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 10px;
+		padding: 0;
+		margin: 0;
+	}
+
+	nav a {
+		display: inline-flex;
+		align-items: center;
+		padding: 10px 14px;
+		border-radius: 999px;
+		text-decoration: none;
+		font-size: 0.95rem;
+		color: rgba(230, 237, 247, 0.84);
+		transition:
+			background-color 0.2s ease,
+			color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	nav a:hover {
+		background: rgba(66, 153, 225, 0.14);
+		color: #ffffff;
+		transform: translateY(-1px);
+	}
+
+	@media (max-width: 860px) {
+		.container {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		nav ul {
+			justify-content: flex-start;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.container {
+			padding-inline: 16px;
+		}
+
+		nav a {
+			padding: 8px 12px;
+			font-size: 0.9rem;
+		}
+	}
+</style>

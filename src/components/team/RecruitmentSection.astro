@@ -1,0 +1,51 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+interface RecruitmentData {
+	features: string[];
+	gains: string[];
+	hopes: string[];
+	news: string[];
+}
+
+interface Props {
+	recruitment: RecruitmentData;
+}
+
+const { recruitment } = Astro.props;
+---
+
+<section class="section recruitment-section" id="lookfor">
+	<SectionHeading
+		kicker="Recruitment"
+		title="招新 / 招募"
+		description="如果你愿意持续学习、乐于分享，也对安全方向有兴趣，这里会很适合你。"
+	/>
+
+	<div class="recruitment-grid">
+		<article class="info-card">
+			<h3>我们能提供</h3>
+			<ul>
+				{recruitment.features.map((item) => <li>{item}</li>)}
+			</ul>
+		</article>
+		<article class="info-card">
+			<h3>你将收获</h3>
+			<ul>
+				{recruitment.gains.map((item) => <li>{item}</li>)}
+			</ul>
+		</article>
+		<article class="info-card">
+			<h3>我们期待你</h3>
+			<ul>
+				{recruitment.hopes.map((item) => <li>{item}</li>)}
+			</ul>
+		</article>
+		<article class="info-card">
+			<h3>招新信息</h3>
+			<ul>
+				{recruitment.news.map((item) => <li>{item}</li>)}
+			</ul>
+		</article>
+	</div>
+</section>
