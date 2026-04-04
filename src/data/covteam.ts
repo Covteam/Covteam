@@ -37,13 +37,15 @@ export const footerGroups = [
   {
     title: '友情链接',
     links: [
-      {href:'https://github.com/covteam',label:'oldGithub'},
-      {href:'https://ctftime.org/team/411206',label:'CTFtime'},
+      {href:'https://github.com/covteam',label:'Github'},
+      {href:'https://ctftime.org/team/35801',label:'CTFtime'},
+      {href:'https://ctftime.org/team/411206',label:'CTFtimeNew'},
     ],
   },
   {
     title: '其他资源',
     links: [
+      {href:'mailto:covteam@yeah.net',label:'联系我们'},
     ],
   },
 ];
@@ -96,7 +98,8 @@ export const recruitment = {
     '肯于钻研',
   ],
   news:[
-    '招新一般定在上半学期和下半学期的期中'
+    '招新一般定在上半学期和下半学期的期中',
+    '具体时间请关注招新群'
   ],
 };
 
