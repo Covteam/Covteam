@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/nav.astro';
+import HeroSection from '../components/team/HeroSection.astro';
+import DirectionsSection from '../components/team/DirectionsSection.astro';
+import AchievementsSection from '../components/team/AchievementsSection.astro';
+import MembersSection from '../components/team/MembersSection.astro';
+import RecruitmentSection from '../components/team/RecruitmentSection.astro';
+import FooterSection from '../components/team/FooterSection.astro';
+import TeamPageStyles from '../components/team/TeamPageStyles.astro';
+import {
+	directions,
+	achievements,
+	recruitment,
+	activeMembers,
+	retiredMembers,
+} from '../data/covteam';
+
+const stats = [
+	{ label: '研究方向', value: `${directions.length}+` },
+	{ label: '历史奖项', value: `${achievements.length}+` },
+	{ label: '现役成员', value: `${activeMembers.length}+` },
+	{ label: '退役成员', value: `${retiredMembers.length}+` },
+];
+---
+
+<Layout title="Covteam 团队主页" description="Covteam 网络安全实验室团队主页">
+	<Nav />
+
+	<main id="top">
+		<HeroSection stats={stats} />
+		<DirectionsSection items={directions} />
+		<AchievementsSection items={achievements} />
+		<MembersSection
+			id="member"
+			kicker="Members"
+			title="现役成员"
+			description="这里优先展示目前仍在团队中活跃、持续投入方向学习与建设的成员。"
+			items={activeMembers}
+			active={true}
+		/>
+		<RecruitmentSection recruitment={recruitment} />
+		<MembersSection
+			id="retired"
+			kicker="Alumni"
+			title="退役成员"
+			description="感谢曾经并肩作战的每一位成员，团队的气质由你们共同塑造。"
+			items={retiredMembers}
+		/>
+	</main>
+	<FooterSection />
+	<TeamPageStyles />
+</Layout>
