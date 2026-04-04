@@ -19,6 +19,7 @@ interface Props {
 }
 
 const { id, kicker, title, description, items, active = false } = Astro.props;
+const defaultAvatar = `${import.meta.env.BASE_URL}img/default-ava.jpg`;
 ---
 
 <section class="section" id={id}>
@@ -32,10 +33,10 @@ const { id, kicker, title, description, items, active = false } = Astro.props;
 				return (
 					<article class:list={['member-card', active && 'active']}>
 						<img
-							src={member.image || '/img/default-ava.jpg'}
+							src={member.image || defaultAvatar}
 							alt={`${member.name || '成员'} 头像`}
 							loading="lazy"
-							onerror="this.onerror=null;this.src='/img/default-ava.jpg';"
+							onerror={`this.onerror=null;this.src='${defaultAvatar}';`}
 						/>
 						<div class="member-body">
 							<div class="member-meta">

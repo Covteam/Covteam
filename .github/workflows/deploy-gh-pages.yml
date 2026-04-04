@@ -34,8 +34,9 @@ jobs:
       - name: Build site
         run: pnpm build
 
-      - name: Add CNAME
-        run: echo "covteam.nacocx.dev" > ./dist/CNAME
+      # - name: Add CNAME
+      #   run: echo "covteam.nacocx.dev" > ./dist/CNAME
+      # 这里是我的域名, 要更改直接改就行
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4

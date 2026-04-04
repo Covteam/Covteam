@@ -7,12 +7,13 @@ const links = [
 	{ href: '#lookfor', label: '招新招募' },
 	{ href: '#retired', label: '退役成员' },
 ];
+const logoSrc = `${import.meta.env.BASE_URL}img/Covteam_logo1.png`;
 ---
 
 <header class="site-nav">
 	<div class="container">
 		<a class="brand" href="#top" aria-label="Covteam 网络安全实验室">
-			<img src="/img/Covteam_logo1.png" alt="Covteam 网络安全实验室" />
+			<img src={logoSrc} alt="Covteam 网络安全实验室" />
 			<div class="brand-copy">
 				<strong>Covteam</strong>
 				<span>网络安全实验室</span>
