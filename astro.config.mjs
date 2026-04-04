@@ -3,5 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://covteam.nacocx.dev'
+	site: 'https://covteam.github.io/Covteam/'
 });
