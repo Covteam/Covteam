@@ -129,7 +129,7 @@ export const activeMembers = [
   {
     name: 'HaZardJ11',
     role: 'WEB',
-    image: '',
+    image: `${baseImageUrl}HaZardJ11.jpg`,
     link: '',
     bio: '2024 级',
   },
