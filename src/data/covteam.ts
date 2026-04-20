@@ -124,7 +124,7 @@ export const activeMembers = [
     role: 'WEB',
     image: `${baseImageUrl}Polaris.jpg`,
     link: '',
-    bio: '2024 级',
+    bio: '2024 级 一个小趴菜',
   },
   {
     name: 'HaZardJ11',
