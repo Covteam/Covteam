@@ -108,16 +108,16 @@ export const activeMembers = [
   {
     name: 'Nacocx',
     role: 'PWN',
-    image: 'https://avatars.githubusercontent.com/u/88483952?v=4',
-    link: 'https://blog.nacocx.dev',
+    image: `${baseImageUrl}Nacocx.png`,
+    link: 'https://blog.nacocx.top',
     bio: '2024 级 PWN RE WEB都会一点点 其他成员的id不知道是什么，所以现役成员都没信息',
   },
   {
     name: 'ep1phany',
     role: 'MISC',
-    image: '',
+    image: `${baseImageUrl}ep1phany.png`,
     link: '',
-    bio: '2024 级',
+    bio: '2024 级 来打ctf喵',
   },
   {
     name: 'Polaris',
@@ -131,7 +131,7 @@ export const activeMembers = [
     role: 'WEB',
     image: `${baseImageUrl}HaZardJ11.jpg`,
     link: '',
-    bio: '2024 级',
+    bio: '2024 级 web菜鸡',
   },
   {
     name: '1',
