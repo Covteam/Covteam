@@ -106,6 +106,13 @@ export const recruitment = {
 // 现役成员
 export const activeMembers = [
   {
+    name: 'Spiral',
+    role: 'WEB',
+    image: `${baseImageUrl}Spiral.jpg`,
+    link: '',
+    bio: '2025 级 WEB REVERSE 我独自升级中',
+  },
+  {
     name: 'Nacocx',
     role: 'PWN',
     image: `${baseImageUrl}Nacocx.png`,
@@ -139,6 +146,13 @@ export const activeMembers = [
     image: `${baseImageUrl}mango.jpg`,
     link: '',
     bio: '2024 级 web菜鸡',
+  },
+  {
+    name: 'Tsing',
+    role: 'WEB',
+    image: `${baseImageUrl}Tsing.png`,
+    link: '',
+    bio: '2024 级 WEB CRYPTO  萌萌之中早已注定',
   },
   {
     name: '1',
@@ -186,12 +200,19 @@ export const activeMembers = [
 
 // 退役成员
 export const retiredMembers = [
+  {
+    name: 'LiuQin',
+    role: 'WEB',
+    image: ``,
+    link: '',
+    bio: '2024 级 web +misc',
+  },
    {
     name: 'suki',
     role: 'WEB',
     image: ``,
     link: '',
-    bio: '2024 web小趴菜',
+    bio: '2024 级 web小趴菜',
   },
   {
     name: 'MEss@',
