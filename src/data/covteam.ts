@@ -155,6 +155,20 @@ export const activeMembers = [
     bio: '2024 级 WEB CRYPTO  萌萌之中早已注定',
   },
   {
+    name: 'LiuQin',
+    role: 'WEB',
+    image: ``,
+    link: '',
+    bio: '2024 级 web +misc',
+  },
+  {
+    name: 'shuidajiao',
+    role: 'WEB',
+    image: `${baseImageUrl}shuidajiao.jpg`,
+    link: '',
+    bio: '2024 级 WEB MISC 菜鸟一枚',
+  },
+  {
     name: '1',
     role: 'CRYPTO',
     image: '',
@@ -200,13 +214,6 @@ export const activeMembers = [
 
 // 退役成员
 export const retiredMembers = [
-  {
-    name: 'LiuQin',
-    role: 'WEB',
-    image: ``,
-    link: '',
-    bio: '2024 级 web +misc',
-  },
    {
     name: 'suki',
     role: 'WEB',
