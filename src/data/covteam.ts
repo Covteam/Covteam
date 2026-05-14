@@ -110,7 +110,7 @@ export const activeMembers = [
     role: 'PWN',
     image: `${baseImageUrl}Nacocx.png`,
     link: 'https://blog.nacocx.top',
-    bio: '2024 级 PWN RE WEB都会一点点 其他成员的id不知道是什么，所以现役成员都没信息',
+    bio: '2024 级 PWN RE WEB都会一点点',
   },
   {
     name: 'ep1phany',
@@ -130,6 +130,13 @@ export const activeMembers = [
     name: 'HaZardJ11',
     role: 'WEB',
     image: `${baseImageUrl}HaZardJ11.jpg`,
+    link: '',
+    bio: '2024 级 web菜鸡',
+  },
+    {
+    name: 'mango',
+    role: 'WEB',
+    image: `${baseImageUrl}mango.jpg`,
     link: '',
     bio: '2024 级 web菜鸡',
   },
@@ -177,8 +184,15 @@ export const activeMembers = [
   },
 ];
 
-// 退役成员（来自老网站，22级的成员我一个都没见过，没写）
+// 退役成员
 export const retiredMembers = [
+   {
+    name: 'suki',
+    role: 'WEB',
+    image: ``,
+    link: '',
+    bio: '2024 web小趴菜',
+  },
   {
     name: 'MEss@',
     role: 'PWN',
@@ -249,7 +263,7 @@ export const retiredMembers = [
     bio: '2019 级，pwnbye4l4^^',
   },
   { name: 'blacktea', role: 'PWN', image: `${baseImageUrl}blacktea.jpg`, bio: '2020 级，pwn20 级预备队员，实验室吟游诗人。' },
-  { name: '沐蛐', role: 'WEB', image: `${baseImageUrl}muli.jpg`, bio: '2020 级，web 萌新一枚。' },
+  { name: '沐蠡', role: 'WEB', image: `${baseImageUrl}muli.jpg`, bio: '2020 级，web 萌新一枚。' },
   {
     name: 'T04hig5t4',
     role: 'WEB',
