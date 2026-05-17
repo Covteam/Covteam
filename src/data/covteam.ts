@@ -113,6 +113,13 @@ export const activeMembers = [
     bio: '2025 级 WEB REVERSE 我独自升级中',
   },
   {
+    name:'Circle',
+    role:'WEB',
+    image:`${baseImageUrl}Circle.jpg`,
+    link:'',
+    bio:'2025 级 web入门萌新，正在积累web相关知识，计划待基础扎实后，再系统学习misc方向',
+  },
+  {
     name: 'Nacocx',
     role: 'PWN',
     image: `${baseImageUrl}Nacocx.png`,
@@ -167,6 +174,13 @@ export const activeMembers = [
     image: `${baseImageUrl}shuidajiao.jpg`,
     link: '',
     bio: '2024 级 WEB MISC 菜鸟一枚',
+  },
+  {
+    'name': 'xboshi',
+    'role': 'WEB',
+    'image': `${baseImageUrl}xboshi.jpg`,
+    'link': '',
+    'bio': '2024 级',
   },
   {
     name: '1',
