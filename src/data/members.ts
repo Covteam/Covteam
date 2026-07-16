@@ -86,48 +86,6 @@ export const activeMembers: Member[] = [
 // 退役成员
 export const retiredMembers: Member[] = [
 	{
-		name: '1',
-		role: 'CRYPTO',
-		image: '',
-		link: '',
-		bio: '2023 级',
-	},
-	{
-		name: '2',
-		role: 'WEB',
-		image: '',
-		link: '',
-		bio: '2023 级',
-	},
-	{
-		name: '3',
-		role: 'PWN',
-		image: '',
-		link: '',
-		bio: '2023 级',
-	},
-	{
-		name: '4',
-		role: 'RE',
-		image: '',
-		link: '',
-		bio: '2023 级',
-	},
-	{
-		name: '5',
-		role: 'WEB',
-		image: '',
-		link: '',
-		bio: '2023 级',
-	},
-	{
-		name: '6',
-		role: 'WEB',
-		image: '',
-		link: '',
-		bio: '2023 级',
-	},
-	{
 		name: 'suki',
 		role: 'WEB',
 		image: ``,
@@ -138,28 +96,24 @@ export const retiredMembers: Member[] = [
 		name: 'MEss@',
 		role: 'PWN',
 		image: `${baseImageUrl}Messa.jpg`,
-		link: 'https://0xme3.github.io/',
 		bio: '个人简介：性别：男，2020级。热爱计算机，也许不是一个出色的CTFer，但我希望自己是个合格的计算机使用者。',
 	},
 	{
 		name: 'Joker',
 		role: 'PWN',
 		image: `${baseImageUrl}joker.jpg`,
-		link: 'https://www.j0k3r.xyz',
 		bio: '个人简介：性别：男，2020级。',
 	},
 	{
 		name: 'cri1stur',
 		role: 'WEB',
 		image: `${baseImageUrl}cri1stur.jpg`,
-		link: 'https://cri1stur.github.io',
 		bio: '个人简介：性别-男，2021级。walking on your way.',
 	},
 	{
 		name: 'sohahaha',
 		role: 'PWN',
 		image: `${baseImageUrl}sohahaha.jpg`,
-		link: 'https://sohaah.github.io/',
 		bio: '个人简介：性别-男，2021级。我是一个帅哥。',
 	},
 	{
@@ -173,7 +127,6 @@ export const retiredMembers: Member[] = [
 		name: 'bluetuu',
 		role: 'PWN',
 		image: `${baseImageUrl}hy.jpg`,
-		link: 'http://bluetuu.com/',
 		bio: '个人简介：性别-女，2020级。',
 	},
 	{
@@ -199,7 +152,6 @@ export const retiredMembers: Member[] = [
 		name: 'Joe1sn',
 		role: 'RE',
 		image: `${baseImageUrl}joe1sn.jpg`,
-		link: 'https://blog.joe1sn.top',
 		bio: '个人简介：性别-男，2019级，pwn|re 二相性选手，方向不定，热爱整活',
 	},
 	{
@@ -226,7 +178,6 @@ export const retiredMembers: Member[] = [
 		name: 'cxxxx',
 		role: 'CRYPTO',
 		image: `${baseImageUrl}cxxxx.jpg`,
-		link: 'https://blog.csdn.net/m0_47305816',
 		bio: '个人简介：性别-女，2019级，混吃等死的专业划水手！大家都来做密码！密码就等着新鲜血液振兴了！',
 	},
 	{
@@ -252,14 +203,12 @@ export const retiredMembers: Member[] = [
 		name: 'T04hig5t4',
 		role: 'WEB',
 		image: `${baseImageUrl}TONIGHT.jpg`,
-		link: 'https://t04hig5t4.work/',
 		bio: '个人简介：性别-男，2019级，曾经的键政魔怔人，P社玩家，零食消灭者，批话烂话之神，男♂同之家创始人',
 	},
 	{
 		name: 'Malabis',
 		role: 'WEB',
 		image: `${baseImageUrl}malabis.jpg`,
-		link: 'https://www.malabis.site',
 		bio: '个人简介：性别-男，2019级，鼠鼠人 渣西 前CTF拉垮选手，现沉迷渗透，前端开发 呜呜呜 我的世界赛 猛1找骚0',
 	},
 	{
@@ -273,7 +222,6 @@ export const retiredMembers: Member[] = [
 		name: 'F1ght',
 		role: 'WEB',
 		image: `${baseImageUrl}FIGHT.jpg`,
-		link: 'http://www.fight123.top',
 		bio: '个人简介：性别-男，2019级，某web，渗透开发一把抓，前端后端android,h5+主流技术',
 	},
 	{
@@ -286,7 +234,6 @@ export const retiredMembers: Member[] = [
 		name: 'huol20',
 		role: 'WEB',
 		image: `${baseImageUrl}huol20.jpg`,
-		link: 'http://too0p.top/',
 		bio: '个人简介：性别-男，2019级，covteam web组划水选手，门门想会样样瘟，有个考研梦',
 	},
 	{
@@ -305,7 +252,6 @@ export const retiredMembers: Member[] = [
 		name: 'Na1vEt0',
 		role: 'MOBILE',
 		image: `${baseImageUrl}default-ava.jpg`,
-		link: 'https://naivete.cc',
 		bio: '个人简介：性别：男 方向：移动安全。主要擅长给dalao递java，喜欢二次元，老婆是新垣结衣、和泉雾纱、五河琴里etc，嗜辣，吃货一枚，未来的目标是能与dalao谈笑风生，实在不行就与dalao同归于尽。',
 	},
 	{
@@ -338,5 +284,47 @@ export const retiredMembers: Member[] = [
 		role: 'RE',
 		image: `${baseImageUrl}default-ava.jpg`,
 		bio: '个人简介：性别：男。方向：逆向。',
+	},
+	{
+		name: '1',
+		role: 'CRYPTO',
+		image: '',
+		link: '',
+		bio: '2023 级 · 资料待补充',
+	},
+	{
+		name: '2',
+		role: 'WEB',
+		image: '',
+		link: '',
+		bio: '2023 级 · 资料待补充',
+	},
+	{
+		name: '3',
+		role: 'PWN',
+		image: '',
+		link: '',
+		bio: '2023 级 · 资料待补充',
+	},
+	{
+		name: '4',
+		role: 'RE',
+		image: '',
+		link: '',
+		bio: '2023 级 · 资料待补充',
+	},
+	{
+		name: '5',
+		role: 'WEB',
+		image: '',
+		link: '',
+		bio: '2023 级 · 资料待补充',
+	},
+	{
+		name: '6',
+		role: 'WEB',
+		image: '',
+		link: '',
+		bio: '2023 级 · 资料待补充',
 	},
 ];
