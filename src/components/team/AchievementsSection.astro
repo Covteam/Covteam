@@ -22,23 +22,9 @@ const isProgressive = items.length > initialVisible;
 		description="这些成绩来自一届又一届成员的训练、协作与沉淀。"
 	/>
 
-	<ul class="achievement-list" id="honor-list">
-		{
-			items.map((item) => (
-				<li
-					class="achievement-item"
-					data-progressive-item={isProgressive ? '' : undefined}
-				>
-					<span class="achievement-dot" aria-hidden="true" />
-					<p>{item}</p>
-				</li>
-			))
-		}
-	</ul>
-
 	{
 		isProgressive && (
-			<div class="section-actions">
+			<div class="section-actions section-actions-leading">
 				<button
 					class="section-toggle"
 					type="button"
@@ -57,4 +43,18 @@ const isProgressive = items.length > initialVisible;
 			</div>
 		)
 	}
+
+	<ul class="achievement-list" id="honor-list">
+		{
+			items.map((item) => (
+				<li
+					class="achievement-item"
+					data-progressive-item={isProgressive ? '' : undefined}
+				>
+					<span class="achievement-dot" aria-hidden="true" />
+					<p>{item}</p>
+				</li>
+			))
+		}
+	</ul>
 </section>

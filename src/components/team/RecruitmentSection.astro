@@ -16,6 +16,15 @@ const { recruitment } = Astro.props;
 		description="如果你愿意持续学习、乐于分享，也对安全方向有兴趣，这里会很适合你。"
 	/>
 
+	<div class="recruitment-contact" aria-label="招新联系方式">
+		<div>
+			<p class="recruitment-contact-kicker">Ready to join?</p>
+			<h3>想进一步了解 Covteam？</h3>
+			<p>招新期间请关注招新群；其他时间也可以通过邮件联系我们。</p>
+		</div>
+		<a class="button secondary" href="mailto:covteam@yeah.net">发送邮件</a>
+	</div>
+
 	<div class="recruitment-grid">
 		<article class="info-card">
 			<h3>我们能提供</h3>
@@ -41,14 +50,5 @@ const { recruitment } = Astro.props;
 				{recruitment.news.map((item) => <li>{item}</li>)}
 			</ul>
 		</article>
-	</div>
-
-	<div class="recruitment-contact" aria-label="招新联系方式">
-		<div>
-			<p class="recruitment-contact-kicker">Ready to join?</p>
-			<h3>想进一步了解 Covteam？</h3>
-			<p>招新期间请关注招新群；其他时间也可以通过邮件联系我们。</p>
-		</div>
-		<a class="button secondary" href="mailto:covteam@yeah.net">发送邮件</a>
 	</div>
 </section>
