@@ -162,7 +162,7 @@ export const activeMembers = [
     bio: '2024 级 WEB CRYPTO  萌萌之中早已注定',
   },
   {
-    name: 'LiuQin',
+    name: 'Auraro',
     role: 'WEB',
     image: ``,
     link: '',
