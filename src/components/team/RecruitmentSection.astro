@@ -1,12 +1,6 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-
-interface RecruitmentData {
-	features: string[];
-	gains: string[];
-	hopes: string[];
-	news: string[];
-}
+import type { RecruitmentData } from '../../types/content';
 
 interface Props {
 	recruitment: RecruitmentData;
@@ -47,5 +41,14 @@ const { recruitment } = Astro.props;
 				{recruitment.news.map((item) => <li>{item}</li>)}
 			</ul>
 		</article>
+	</div>
+
+	<div class="recruitment-contact" aria-label="招新联系方式">
+		<div>
+			<p class="recruitment-contact-kicker">Ready to join?</p>
+			<h3>想进一步了解 Covteam？</h3>
+			<p>招新期间请关注招新群；其他时间也可以通过邮件联系我们。</p>
+		</div>
+		<a class="button secondary" href="mailto:covteam@yeah.net">发送邮件</a>
 	</div>
 </section>

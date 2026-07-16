@@ -2,7 +2,6 @@
 
 Git Page: https://covteam.github.io/Covteam/
 
-
 ## 团队介绍
 
 西华大学网络安全兴趣小组（Covteam）成立于 2005 年。以西华大学在校本科生、研究生为主力，依托于西华大学网络安全实验室，实验室主要负责网络和安全方向的研究，是培养我校在网络安全领域全面发展的人才的摇篮。
@@ -43,10 +42,9 @@ Git Page: https://covteam.github.io/Covteam/
 │   ├── favicon.svg
 │   └── img/                        # 团队图片、Logo、历史素材
 ├── src/
-│   ├── assets/                     # Astro 默认静态资源
+│   ├── assets/                     # 由 Astro 处理的静态资源
 │   ├── components/
-│   │   ├── nav.astro               # 顶部导航
-│   │   ├── Welcome.astro           # 默认示例组件，可按需删除
+│   │   ├── SiteNav.astro           # 顶部导航
 │   │   └── team/
 │   │       ├── AchievementsSection.astro
 │   │       ├── DirectionsSection.astro
@@ -54,13 +52,18 @@ Git Page: https://covteam.github.io/Covteam/
 │   │       ├── MembersSection.astro
 │   │       ├── RecruitmentSection.astro
 │   │       ├── SectionHeading.astro
-│   │       └── TeamPageStyles.astro
 │   ├── data/
-│   │   └── covteam.ts              # 团队方向、奖项、成员、招新数据
+│   │   ├── covteam.ts              # 数据统一导出入口
+│   │   ├── members.ts              # 现役与退役成员
+│   │   └── site.ts                 # 导航、方向、奖项与招新
 │   ├── layouts/
 │   │   └── Layout.astro            # 全局页面布局
 │   └── pages/
 │       └── index.astro             # 首页入口，负责组装各区块
+│   ├── styles/
+│   │   └── team.css                # 首页视觉样式
+│   └── types/
+│       └── content.ts              # 内容数据模型
 ├── astro.config.mjs
 ├── package.json
 ├── pnpm-lock.yaml
@@ -71,8 +74,8 @@ Git Page: https://covteam.github.io/Covteam/
 
 - `src/pages/index.astro`
   负责引入数据与页面组件，是首页的装配层。
-- `src/data/covteam.ts`
-  集中维护团队介绍页用到的数据，适合后续继续补充成员和奖项。
+- `src/data/site.ts` 与 `src/data/members.ts`
+  分别维护站点内容和成员资料，由 `src/data/covteam.ts` 统一导出。
 - `src/components/team/`
   存放首页各个内容区块组件，便于拆分维护。
 - `public/img/`
@@ -100,6 +103,8 @@ pnpm dev
 pnpm dev
 pnpm build
 pnpm preview
+pnpm check
+pnpm format:check
 pnpm astro -- --help
 ```
 
@@ -108,10 +113,12 @@ pnpm astro -- --help
 - `pnpm dev`：启动本地开发服务器
 - `pnpm build`：构建生产版本到 `dist/`
 - `pnpm preview`：本地预览构建产物
+- `pnpm check`：检查 Astro 组件与 TypeScript 类型
+- `pnpm format:check`：检查代码格式
 - `pnpm astro -- --help`：查看 Astro CLI 帮助
 
 ## 维护建议
 
-- 新增成员、奖项、方向信息时，优先修改 `src/data/covteam.ts`
+- 新增成员时修改 `src/data/members.ts`；奖项、方向与招新信息修改 `src/data/site.ts`
 - 调整首页结构时，优先在 `src/components/team/` 中拆分和维护
 - 如果后续要清理图片资源，建议统一 `public/img/` 中的命名风格

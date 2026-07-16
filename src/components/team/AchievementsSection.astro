@@ -3,26 +3,58 @@ import SectionHeading from './SectionHeading.astro';
 
 interface Props {
 	items: string[];
+	initialVisible?: number;
 }
 
-const { items } = Astro.props;
+const { items, initialVisible = 6 } = Astro.props;
+const isProgressive = items.length > initialVisible;
 ---
 
-<section class="section section-highlight" id="honor">
+<section
+	class="section section-highlight"
+	id="honor"
+	data-progressive-disclosure={isProgressive ? '' : undefined}
+	data-initial-visible={isProgressive ? initialVisible : undefined}
+>
 	<SectionHeading
 		kicker="Honors"
 		title="历史得奖"
 		description="这些成绩来自一届又一届成员的训练、协作与沉淀。"
 	/>
 
-	<div class="achievement-list">
+	<ul class="achievement-list" id="honor-list">
 		{
 			items.map((item) => (
-				<div class="achievement-item">
-					<span class="achievement-dot" aria-hidden="true"></span>
+				<li
+					class="achievement-item"
+					data-progressive-item={isProgressive ? '' : undefined}
+				>
+					<span class="achievement-dot" aria-hidden="true" />
 					<p>{item}</p>
-				</div>
+				</li>
 			))
 		}
-	</div>
+	</ul>
+
+	{
+		isProgressive && (
+			<div class="section-actions">
+				<button
+					class="section-toggle"
+					type="button"
+					hidden
+					aria-expanded="false"
+					aria-controls="honor-list"
+					data-progressive-toggle
+					data-expand-label={`查看全部 ${items.length} 项奖项`}
+					data-collapse-label="收起历年奖项"
+				>
+					<span data-progressive-label>查看全部 {items.length} 项奖项</span>
+					<span class="toggle-icon" aria-hidden="true">
+						↓
+					</span>
+				</button>
+			</div>
+		)
+	}
 </section>

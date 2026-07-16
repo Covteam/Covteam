@@ -1,17 +1,28 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^6.0.8"
-  }
+	"name": "covteam-site",
+	"private": true,
+	"type": "module",
+	"version": "0.0.1",
+	"packageManager": "pnpm@10.33.2",
+	"engines": {
+		"node": ">=22.12.0"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check": "astro check",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"dependencies": {
+		"astro": "^6.0.8"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.9",
+		"prettier": "^3.9.5",
+		"prettier-plugin-astro": "^0.14.1",
+		"typescript": "^5.9.3"
+	}
 }

@@ -1,5 +1,5 @@
 ---
-import { footerGroups } from '../../data/covteam';
+import { footerGroups } from '../../data/site';
 ---
 
 <footer class="site-footer" id="footer">
@@ -15,21 +15,28 @@ import { footerGroups } from '../../data/covteam';
 				footerGroups.map((group) => (
 					<section class="footer-group" aria-label={group.title}>
 						<h3>{group.title}</h3>
-						{
-							group.links.length > 0 ? (
-								<ul>
-									{group.links.map((link) => (
-										<li>
-											<a href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noreferrer' : undefined}>
-												{link.label}
-											</a>
-										</li>
-									))}
-								</ul>
-							) : (
-								<p class="footer-empty">No items yet.</p>
-							)
-						}
+						{group.links.length > 0 ? (
+							<ul>
+								{group.links.map((link) => (
+									<li>
+										<a
+											href={link.href}
+											target={link.external ? '_blank' : undefined}
+											rel={link.external ? 'noopener noreferrer' : undefined}
+											aria-label={
+												link.external
+													? `${link.label}（在新标签页打开）`
+													: undefined
+											}
+										>
+											{link.label}
+										</a>
+									</li>
+								))}
+							</ul>
+						) : (
+							<p class="footer-empty">No items yet.</p>
+						)}
 					</section>
 				))
 			}

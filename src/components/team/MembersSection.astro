@@ -1,42 +1,51 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-
-interface MemberItem {
-	name: string;
-	role: string;
-	image: string;
-	link?: string;
-	bio: string;
-}
+import type { Member } from '../../types/content';
 
 interface Props {
 	id: string;
 	kicker: string;
 	title: string;
 	description: string;
-	items: MemberItem[];
-	active?: boolean;
+	items: Member[];
+	initialVisible?: number;
 }
 
-const { id, kicker, title, description, items, active = false } = Astro.props;
+const { id, kicker, title, description, items, initialVisible } = Astro.props;
 const defaultAvatar = `${import.meta.env.BASE_URL}img/default-ava.jpg`;
+const isProgressive =
+	initialVisible !== undefined && items.length > initialVisible;
 ---
 
-<section class="section" id={id}>
+<section
+	class="section"
+	id={id}
+	data-progressive-disclosure={isProgressive ? '' : undefined}
+	data-initial-visible={isProgressive ? initialVisible : undefined}
+>
 	<SectionHeading kicker={kicker} title={title} description={description} />
 
-	<div class="member-grid">
+	<div class="member-grid" id={`${id}-list`}>
 		{
 			items.map((member) => {
 				const homepage = member.link?.trim();
 
 				return (
-					<article class:list={['member-card', active && 'active']}>
+					<article
+						class="member-card"
+						tabindex="0"
+						aria-label={`${member.name}，${member.role}，${member.bio}`}
+						data-progressive-item={isProgressive ? '' : undefined}
+					>
 						<img
 							src={member.image || defaultAvatar}
 							alt={`${member.name || '成员'} 头像`}
+							width="640"
+							height="640"
 							loading="lazy"
-							onerror={`this.onerror=null;this.src='${defaultAvatar}';`}
+							decoding="async"
+							data-member-avatar
+							data-fallback-src={defaultAvatar}
 						/>
 						<div class="member-body">
 							<div class="member-meta">
@@ -45,15 +54,18 @@ const defaultAvatar = `${import.meta.env.BASE_URL}img/default-ava.jpg`;
 							</div>
 							<p>{member.bio}</p>
 							<div class="member-footer">
-								{
-									homepage ? (
-										<a href={homepage} target="_blank" rel="noreferrer">
-											访问主页
-										</a>
-									) : (
-										<span class="member-link muted">暂无公开主页</span>
-									)
-								}
+								{homepage ? (
+									<a
+										href={homepage}
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label={`访问 ${member.name} 的主页（在新标签页打开）`}
+									>
+										访问主页
+									</a>
+								) : (
+									<span class="member-link muted">暂无公开主页</span>
+								)}
 							</div>
 						</div>
 					</article>
@@ -61,4 +73,45 @@ const defaultAvatar = `${import.meta.env.BASE_URL}img/default-ava.jpg`;
 			})
 		}
 	</div>
+
+	{
+		isProgressive && (
+			<div class="section-actions">
+				<button
+					class="section-toggle"
+					type="button"
+					hidden
+					aria-expanded="false"
+					aria-controls={`${id}-list`}
+					data-progressive-toggle
+					data-expand-label={`查看全部 ${items.length} 位${title}`}
+					data-collapse-label={`收起${title}`}
+				>
+					<span data-progressive-label>
+						查看全部 {items.length} 位{title}
+					</span>
+					<span class="toggle-icon" aria-hidden="true">
+						↓
+					</span>
+				</button>
+			</div>
+		)
+	}
 </section>
+
+<script>
+	document
+		.querySelectorAll<HTMLImageElement>('[data-member-avatar]')
+		.forEach((avatar) => {
+			avatar.addEventListener(
+				'error',
+				() => {
+					const fallbackSrc = avatar.dataset.fallbackSrc;
+					if (fallbackSrc && !avatar.src.endsWith(fallbackSrc)) {
+						avatar.src = fallbackSrc;
+					}
+				},
+				{ once: true },
+			);
+		});
+</script>

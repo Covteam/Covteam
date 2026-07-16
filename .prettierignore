@@ -1,0 +1,6 @@
+dist/
+node_modules/
+public/
+pnpm-lock.yaml
+.vscode/
+.github/workflows/deploy-gh-pages.yml

@@ -1,8 +1,5 @@
 ---
-interface StatItem {
-	label: string;
-	value: string;
-}
+import type { StatItem } from '../../types/content';
 
 interface Props {
 	stats: StatItem[];
@@ -18,7 +15,8 @@ const teamPhotoSrc = `${import.meta.env.BASE_URL}img/Covteam-hack.jpg`;
 		<p class="eyebrow">H4ck 4 fun!</p>
 		<h1>Covteam</h1>
 		<p class="lead">
-			聚焦 Web、安全研发、二进制与基础设施能力建设，延续 CTF 与实战并重的学习传统，
+			聚焦 Web、安全研发、二进制与基础设施能力建设，延续 CTF
+			与实战并重的学习传统，
 			也欢迎对网络安全、开发与技术社区有热情的同学加入我们。
 		</p>
 
@@ -27,24 +25,37 @@ const teamPhotoSrc = `${import.meta.env.BASE_URL}img/Covteam-hack.jpg`;
 			<a class="button secondary" href="#lookfor">了解招新</a>
 		</div>
 
-		<div class="stats" aria-label="团队概况">
+		<dl class="stats" aria-label="团队概况">
 			{
 				stats.map((item) => (
 					<div class="stat-card">
-						<strong>{item.value}</strong>
-						<span>{item.label}</span>
+						<dd>{item.value}</dd>
+						<dt>{item.label}</dt>
 					</div>
 				))
 			}
-		</div>
+		</dl>
 	</div>
 
 	<div class="hero-visual">
 		<div class="visual-panel logo-panel">
-			<img src={logoSrc} alt="Covteam Logo" />
+			<img
+				src={logoSrc}
+				alt="Covteam Logo"
+				width="700"
+				height="590"
+				decoding="async"
+			/>
 		</div>
 		<div class="visual-panel photo-panel">
-			<img src={teamPhotoSrc} alt="Covteam 团队活动" />
+			<img
+				src={teamPhotoSrc}
+				alt="Covteam 团队活动"
+				width="1920"
+				height="1080"
+				decoding="async"
+				fetchpriority="high"
+			/>
 		</div>
 	</div>
 </section>

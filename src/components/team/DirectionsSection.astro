@@ -1,10 +1,6 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-
-interface DirectionItem {
-	title: string;
-	description: string;
-}
+import type { DirectionItem } from '../../types/content';
 
 interface Props {
 	items: DirectionItem[];

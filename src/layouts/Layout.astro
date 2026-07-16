@@ -1,14 +1,22 @@
 ---
-const favPath=`${import.meta.env.BASE_URL}favicon.ico`
+const favPath = `${import.meta.env.BASE_URL}favicon.ico`;
 interface Props {
 	title?: string;
 	description?: string;
 }
 
 const {
-	title = "Covteam 网络安全实验室",
-	description = "Covteam 团队主页，展示实验室方向、成绩、成员与招新信息。",
+	title = 'Covteam 网络安全实验室',
+	description = 'Covteam 团队主页，展示实验室方向、成绩、成员与招新信息。',
 } = Astro.props;
+
+const canonicalUrl = Astro.site
+	? new URL(Astro.url.pathname, Astro.site)
+	: Astro.url;
+const socialImageUrl = new URL(
+	`${import.meta.env.BASE_URL}img/Covteam-hack.jpg`,
+	Astro.site ?? Astro.url,
+);
 ---
 
 <!doctype html>
@@ -17,19 +25,29 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href={favPath} />
+		<link rel="canonical" href={canonicalUrl} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
+		<meta name="theme-color" content="#071412" />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="zh_CN" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={socialImageUrl} />
+		<meta name="twitter:card" content="summary_large_image" />
 		<title>{title}</title>
 	</head>
 	<body>
+		<a class="skip-link" href="#top">跳到主要内容</a>
 		<slot />
 	</body>
 </html>
 <script>
 	const _0xa4b2: _0x1a3b = [
-		1, 89, 1, 73, 1, 86, 1, 68, 1, 85, 1, 71, 1, 124, 1, 117, 1, 105, 1,
-		106, 1, 116, 1, 96, 1, 106, 1, 116, 1, 96, 1, 117, 1, 115, 1, 118, 1,
-		102, 1, 96, 1, 103, 1, 109, 1, 98, 1, 104, 1, 126, 2, 3, 99,
+		1, 89, 1, 73, 1, 86, 1, 68, 1, 85, 1, 71, 1, 124, 1, 117, 1, 105, 1, 106, 1,
+		116, 1, 96, 1, 106, 1, 116, 1, 96, 1, 117, 1, 115, 1, 118, 1, 102, 1, 96, 1,
+		103, 1, 109, 1, 98, 1, 104, 1, 126, 2, 3, 99,
 	];
 	console.log(String.raw`
  ________  ________  ___      ___ _________  _______   ________  _____ ______      
@@ -40,8 +58,8 @@ const {
    \ \_______\ \_______\ \__/ /         \ \__\ \ \_______\ \__\ \__\ \__\    \ \__\
     \|_______|\|_______|\|__|/           \|__|  \|_______|\|__|\|__|\|__|     \|__|
 `);
-	console.log("XHUCTF{this_is_a_fake_flag}");
-	console.log("Flag is here =>");
+	console.log('XHUCTF{this_is_a_fake_flag}');
+	console.log('Flag is here =>');
 	type _0x4f12 = 1 | 2 | 3 | 99;
 	type _0x1a3b = number[];
 	((_0x78cf: _0x1a3b): void => {
@@ -62,25 +80,23 @@ const {
 					break;
 				case 3:
 					console.log(
-						_0x921a
-							.map((_0x22de) => String.fromCharCode(_0x22de))
-							.join("")
+						_0x921a.map((_0x22de) => String.fromCharCode(_0x22de)).join(''),
 					);
 					break;
 				case 99:
 					_0xf02d = false;
 					break;
 				default:
-					throw new Error("Unknown opcode: " + _0x11ab);
+					throw new Error('Unknown opcode: ' + _0x11ab);
 			}
 		}
 	})([] as unknown as _0x1a3b);
-	console.log(_0xa4b2)
+	console.log(_0xa4b2);
 </script>
 
 <style>
 	:root {
-		color-scheme: light;
+		color-scheme: dark;
 	}
 
 	html,
@@ -95,7 +111,7 @@ const {
 		background: #08111f;
 		color: #e6edf7;
 		font-family:
-			"Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+			'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
 			sans-serif;
 	}
 
@@ -105,5 +121,45 @@ const {
 
 	a {
 		color: inherit;
+	}
+
+	.skip-link {
+		position: fixed;
+		top: 12px;
+		left: 12px;
+		z-index: 100;
+		padding: 10px 14px;
+		border-radius: 10px;
+		background: #f6f2e8;
+		color: #071412;
+		font-weight: 700;
+		text-decoration: none;
+		transform: translateY(-160%);
+		transition: transform 0.2s ease;
+	}
+
+	.skip-link:focus {
+		transform: translateY(0);
+	}
+
+	:focus-visible {
+		outline: 3px solid #66d6b5;
+		outline-offset: 4px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html,
+		body {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			scroll-behavior: auto !important;
+			transition-duration: 0.01ms !important;
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+		}
 	}
 </style>
