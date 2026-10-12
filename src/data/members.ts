@@ -47,13 +47,6 @@ export const activeMembers: Member[] = [
 		bio: '2024 级 web菜鸡',
 	},
 	{
-		name: 'mango',
-		role: 'WEB',
-		image: `${baseImageUrl}mango.jpg`,
-		link: '',
-		bio: '2024 级 web菜鸡',
-	},
-	{
 		name: 'Tsing',
 		role: 'WEB',
 		image: `${baseImageUrl}Tsing.png`,
@@ -85,6 +78,13 @@ export const activeMembers: Member[] = [
 
 // 退役成员
 export const retiredMembers: Member[] = [
+	{
+		name: 'mango',
+		role: 'WEB',
+		image: `${baseImageUrl}mango.jpg`,
+		link: '',
+		bio: '2024 级 web菜鸡',
+	},
 	{
 		name: 'suki',
 		role: 'WEB',
