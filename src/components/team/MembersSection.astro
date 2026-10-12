@@ -25,78 +25,78 @@ const isProgressive =
 >
 	<SectionHeading kicker={kicker} title={title} description={description} />
 
-	<div class="member-grid" id={`${id}-list`}>
-		{
-			items.map((member) => {
-				const homepage = member.link?.trim();
+	<div class="section-content">
+		<div class="member-grid" id={`${id}-list`}>
+			{
+				items.map((member) => {
+					const homepage = member.link?.trim();
 
-				return (
-					<article
-						class="member-card"
-						tabindex="0"
-						aria-label={`${member.name}，${member.role}，${member.bio}`}
-						data-progressive-item={isProgressive ? '' : undefined}
+					return (
+						<article
+							class="member-card"
+							data-progressive-item={isProgressive ? '' : undefined}
+						>
+							<img
+								src={member.image || defaultAvatar}
+								alt={`${member.name || '成员'} 头像`}
+								width="640"
+								height="640"
+								loading="lazy"
+								decoding="async"
+								data-member-avatar
+								data-fallback-src={defaultAvatar}
+							/>
+							<div class="member-body">
+								<div class="member-meta">
+									<h3>{member.name}</h3>
+									<span>{member.role}</span>
+								</div>
+								<p>{member.bio}</p>
+								<div class="member-footer">
+									{homepage ? (
+										<a
+											href={homepage}
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label={`访问 ${member.name} 的主页（在新标签页打开）`}
+										>
+											访问主页
+										</a>
+									) : (
+										<span class="member-link muted">暂无公开主页</span>
+									)}
+								</div>
+							</div>
+						</article>
+					);
+				})
+			}
+		</div>
+
+		{
+			isProgressive && (
+				<div class="section-actions">
+					<button
+						class="section-toggle"
+						type="button"
+						hidden
+						aria-expanded="false"
+						aria-controls={`${id}-list`}
+						data-progressive-toggle
+						data-expand-label={`查看全部 ${items.length} 位${title}`}
+						data-collapse-label={`收起${title}`}
 					>
-						<img
-							src={member.image || defaultAvatar}
-							alt={`${member.name || '成员'} 头像`}
-							width="640"
-							height="640"
-							loading="lazy"
-							decoding="async"
-							data-member-avatar
-							data-fallback-src={defaultAvatar}
-						/>
-						<div class="member-body">
-							<div class="member-meta">
-								<h3>{member.name}</h3>
-								<span>{member.role}</span>
-							</div>
-							<p>{member.bio}</p>
-							<div class="member-footer">
-								{homepage ? (
-									<a
-										href={homepage}
-										target="_blank"
-										rel="noopener noreferrer"
-										aria-label={`访问 ${member.name} 的主页（在新标签页打开）`}
-									>
-										访问主页
-									</a>
-								) : (
-									<span class="member-link muted">暂无公开主页</span>
-								)}
-							</div>
-						</div>
-					</article>
-				);
-			})
+						<span data-progressive-label>
+							查看全部 {items.length} 位{title}
+						</span>
+						<span class="toggle-icon" aria-hidden="true">
+							↓
+						</span>
+					</button>
+				</div>
+			)
 		}
 	</div>
-
-	{
-		isProgressive && (
-			<div class="section-actions">
-				<button
-					class="section-toggle"
-					type="button"
-					hidden
-					aria-expanded="false"
-					aria-controls={`${id}-list`}
-					data-progressive-toggle
-					data-expand-label={`查看全部 ${items.length} 位${title}`}
-					data-collapse-label={`收起${title}`}
-				>
-					<span data-progressive-label>
-						查看全部 {items.length} 位{title}
-					</span>
-					<span class="toggle-icon" aria-hidden="true">
-						↓
-					</span>
-				</button>
-			</div>
-		)
-	}
 </section>
 
 <script>

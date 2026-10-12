@@ -122,3 +122,27 @@ pnpm astro -- --help
 - 新增成员时修改 `src/data/members.ts`；奖项、方向与招新信息修改 `src/data/site.ts`
 - 调整首页结构时，优先在 `src/components/team/` 中拆分和维护
 - 如果后续要清理图片资源，建议统一 `public/img/` 中的命名风格
+
+## 本地视觉优化与跨平台环境
+
+本次改造规格、变更记录和验收结果见 `docs/taste-redesign-spec.md`、
+`docs/CHANGELOG.md`、`docs/taste-redesign-validation.md`。
+
+macOS（zsh，先启用 fnm 环境）与 Windows（PowerShell，先执行
+`fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression`）
+均使用以下命令。macOS 可以执行 `eval "$(fnm env --use-on-cd --shell zsh)"`。
+
+```text
+fnm install 22
+fnm use 22
+npm install --global pnpm@10.33.2
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+构建与检查：`pnpm check`、`pnpm build`、`pnpm format:check`。
+页面路径为 `/Covteam/`，请使用终端打印的完整地址。
+当前项目无需 Python 运行环境；使用 Python 维护工具时通过 conda 管理。
+
+修改应保留在本地功能分支。未经维护者明确允许，不得 push 到 remote；
+后续获得授权后再通过 PR 合并到 main。

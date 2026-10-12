@@ -1,61 +1,61 @@
 ---
 import type { StatItem } from '../../types/content';
-
 interface Props {
 	stats: StatItem[];
 }
-
 const { stats } = Astro.props;
 const logoSrc = `${import.meta.env.BASE_URL}img/Covteam_logo1.png`;
-const teamPhotoSrc = `${import.meta.env.BASE_URL}img/Covteam-hack.jpg`;
 ---
 
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
 	<div class="hero-copy">
-		<p class="eyebrow">H4ck 4 fun!</p>
-		<h1>Covteam</h1>
-		<p class="lead">
-			聚焦 Web、安全研发、二进制与基础设施能力建设，延续 CTF
-			与实战并重的学习传统，
-			也欢迎对网络安全、开发与技术社区有热情的同学加入我们。
+		<p class="eyebrow">西华大学 · 网络安全兴趣小组</p>
+		<h1 id="hero-title">Covteam<span>H4ck 4 fun!</span></h1>
+		<p class="lead">从一道题开始，把好奇心变成真本事。</p>
+		<p class="hero-description">
+			成立于 2005 年，依托西华大学网络安全实验室。我们在这里研究安全、一起打
+			CTF，也把学到的知识写进代码、分享给下一届同学。
 		</p>
-
 		<div class="hero-actions">
-			<a class="button primary" href="#member">查看成员</a>
-			<a class="button secondary" href="#lookfor">了解招新</a>
+			<a class="button primary" href="#lookfor"
+				>了解招新 <span aria-hidden="true">↗</span></a
+			>
+			<a class="text-link" href="#directions"
+				>看看我们在做什么 <span aria-hidden="true">↓</span></a
+			>
 		</div>
-
-		<dl class="stats" aria-label="团队概况">
-			{
-				stats.map((item) => (
-					<div class="stat-card">
-						<dd>{item.value}</dd>
-						<dt>{item.label}</dt>
-					</div>
-				))
-			}
-		</dl>
 	</div>
-
-	<div class="hero-visual">
-		<div class="visual-panel logo-panel">
+	<figure class="hero-visual">
+		<div class="visual-label">
+			<span>TEAM IDENTITY</span><span>01 / COV</span>
+		</div>
+		<div class="logo-stage">
 			<img
 				src={logoSrc}
-				alt="Covteam Logo"
+				alt="Covteam 战队狼形 Logo"
 				width="700"
 				height="590"
-				decoding="async"
-			/>
-		</div>
-		<div class="visual-panel photo-panel">
-			<img
-				src={teamPhotoSrc}
-				alt="Covteam 团队活动"
-				width="1920"
-				height="1080"
 				decoding="async"
 				fetchpriority="high"
 			/>
 		</div>
+		<figcaption>
+			<span>好奇 · 钻研 · 分享</span><span>EST. 2005</span>
+		</figcaption>
+	</figure>
+	<div class="hero-bottom">
+		<p class="hero-note">一届接着一届，<br />一起拆解问题。</p>
+		<dl class="stats" aria-label="团队已收录资料">
+			{
+				stats.map((item) => (
+					<div class="stat-card">
+						<>
+							<dt>{item.label}</dt>
+							<dd>{item.value}</dd>
+						</>
+					</div>
+				))
+			}
+		</dl>
 	</div>
 </section>

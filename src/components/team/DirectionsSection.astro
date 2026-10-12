@@ -1,27 +1,40 @@
 ---
 import SectionHeading from './SectionHeading.astro';
 import type { DirectionItem } from '../../types/content';
-
 interface Props {
 	items: DirectionItem[];
 }
-
 const { items } = Astro.props;
+const labels = [
+	'Web security',
+	'Reverse engineering',
+	'Networks & servers',
+	'Web development',
+];
 ---
 
 <section class="section" id="directions">
 	<SectionHeading
-		kicker="Directions"
-		title="团队方向"
-		description="从竞赛到工程实践，我们围绕安全能力做长期积累。"
+		kicker="01 / Directions"
+		title="从兴趣出发，往深处走。"
+		description="四个方向，同一个实验室。你可以从熟悉的领域开始，也可以和队友一起探索新的问题。"
 	/>
-
-	<div class="card-grid direction-grid">
+	<div class="direction-list">
 		{
-			items.map((item) => (
-				<article class="info-card">
-					<h3>{item.title}</h3>
-					<p>{item.description}</p>
+			items.map((item, index) => (
+				<article class="direction-row">
+					<>
+						<span class="direction-index" aria-hidden="true">
+							{String(index + 1).padStart(2, '0')}
+						</span>
+						<div class="direction-title">
+							<>
+								<h3>{item.title}</h3>
+								<span>{labels[index]}</span>
+							</>
+						</div>
+						<p>{item.description}</p>
+					</>
 				</article>
 			))
 		}
