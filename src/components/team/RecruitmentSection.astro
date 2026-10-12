@@ -1,54 +1,52 @@
 ---
 import SectionHeading from './SectionHeading.astro';
 import type { RecruitmentData } from '../../types/content';
-
 interface Props {
 	recruitment: RecruitmentData;
 }
-
 const { recruitment } = Astro.props;
 ---
 
 <section class="section recruitment-section" id="lookfor">
 	<SectionHeading
-		kicker="Recruitment"
-		title="招新 / 招募"
-		description="如果你愿意持续学习、乐于分享，也对安全方向有兴趣，这里会很适合你。"
+		kicker="04 / Join the team"
+		title="下一道题，一起解。"
+		description="招新面向西华大学全校同学。如果你喜欢计算机、愿意钻研问题，欢迎来认识我们。"
 	/>
-
-	<div class="recruitment-contact" aria-label="招新联系方式">
-		<div>
-			<p class="recruitment-contact-kicker">Ready to join?</p>
-			<h3>想进一步了解 Covteam？</h3>
-			<p>招新期间请关注招新群；其他时间也可以通过邮件联系我们。</p>
+	<div class="section-content">
+		<div class="recruitment-contact" aria-label="招新联系方式">
+			<div>
+				<p class="recruitment-contact-kicker">从一次交流开始</p><h3>
+					说说你感兴趣的方向。
+				</h3><p>
+					招新时间以群内通知为准。还没加入招新群？可以先通过邮件联系我们。
+				</p>
+			</div>
+			<a class="button primary" href="mailto:covteam@yeah.net"
+				>covteam@yeah.net <span aria-hidden="true">↗</span></a
+			>
 		</div>
-		<a class="button secondary" href="mailto:covteam@yeah.net">发送邮件</a>
-	</div>
-
-	<div class="recruitment-grid">
-		<article class="info-card">
-			<h3>我们能提供</h3>
-			<ul>
-				{recruitment.features.map((item) => <li>{item}</li>)}
-			</ul>
-		</article>
-		<article class="info-card">
-			<h3>你将收获</h3>
-			<ul>
-				{recruitment.gains.map((item) => <li>{item}</li>)}
-			</ul>
-		</article>
-		<article class="info-card">
-			<h3>我们期待你</h3>
-			<ul>
-				{recruitment.hopes.map((item) => <li>{item}</li>)}
-			</ul>
-		</article>
-		<article class="info-card">
-			<h3>招新信息</h3>
-			<ul>
-				{recruitment.news.map((item) => <li>{item}</li>)}
-			</ul>
-		</article>
+		<div class="recruitment-grid">
+			<article class="info-card">
+				<h3>在这里学习</h3><ul>
+					{recruitment.features.map((item) => <li>{item}</li>)}
+				</ul>
+			</article>
+			<article class="info-card">
+				<h3>把兴趣变成技能</h3><ul>
+					{recruitment.gains.map((item) => <li>{item}</li>)}
+				</ul>
+			</article>
+			<article class="info-card">
+				<h3>我们期待这样的你</h3><ul>
+					{recruitment.hopes.map((item) => <li>{item}</li>)}
+				</ul>
+			</article>
+			<aside class="recruitment-news">
+				<h3>什么时候招新？</h3><ul>
+					{recruitment.news.map((item) => <li>{item}</li>)}
+				</ul>
+			</aside>
+		</div>
 	</div>
 </section>

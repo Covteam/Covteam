@@ -72,6 +72,7 @@ export const footerGroups: FooterGroup[] = [
 
 // 获得的奖项
 export const achievements: string[] = [
+	'2026 第十届御网杯网络安全大赛一等奖',
 	'2026 全国大学生信息安全竞赛重庆赛区三等奖',
 	'2025 四川省大学生信息安全竞赛三等奖',
 	'2024 全国大学生信息安全竞赛西南赛区二等奖',

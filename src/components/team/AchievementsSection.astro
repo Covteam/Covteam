@@ -1,13 +1,17 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-
 interface Props {
 	items: string[];
 	initialVisible?: number;
 }
-
 const { items, initialVisible = 6 } = Astro.props;
 const isProgressive = items.length > initialVisible;
+const records = items
+	.map((item) => ({
+		text: item,
+		year: item.match(/\b20\d{2}\b/)?.[0] ?? '记录',
+	}))
+	.sort((a, b) => b.year.localeCompare(a.year));
 ---
 
 <section
@@ -17,44 +21,48 @@ const isProgressive = items.length > initialVisible;
 	data-initial-visible={isProgressive ? initialVisible : undefined}
 >
 	<SectionHeading
-		kicker="Honors"
-		title="历史得奖"
-		description="这些成绩来自一届又一届成员的训练、协作与沉淀。"
+		kicker="02 / Field notes"
+		title="赛场上的足迹。"
+		description="从区域赛到全国赛，留下的不只有名次，还有一起调试到最后的记忆。以下为已收录的比赛成绩。"
 	/>
-
-	{
-		isProgressive && (
-			<div class="section-actions section-actions-leading">
-				<button
-					class="section-toggle"
-					type="button"
-					hidden
-					aria-expanded="false"
-					aria-controls="honor-list"
-					data-progressive-toggle
-					data-expand-label={`查看全部 ${items.length} 项奖项`}
-					data-collapse-label="收起历年奖项"
-				>
-					<span data-progressive-label>查看全部 {items.length} 项奖项</span>
-					<span class="toggle-icon" aria-hidden="true">
-						↓
-					</span>
-				</button>
-			</div>
-		)
-	}
-
-	<ul class="achievement-list" id="honor-list">
+	<div class="section-content">
+		<ul class="achievement-list" id="honor-list">
+			{
+				records.map((item) => (
+					<li
+						class="achievement-item"
+						data-progressive-item={isProgressive ? '' : undefined}
+					>
+						<>
+							<span class="achievement-year">{item.year}</span>
+							<p>{item.text.replace(/^20\d{2}\s*/, '')}</p>
+						</>
+					</li>
+				))
+			}
+		</ul>
 		{
-			items.map((item) => (
-				<li
-					class="achievement-item"
-					data-progressive-item={isProgressive ? '' : undefined}
-				>
-					<span class="achievement-dot" aria-hidden="true" />
-					<p>{item}</p>
-				</li>
-			))
+			isProgressive && (
+				<div class="section-actions">
+					<button
+						class="section-toggle"
+						type="button"
+						hidden
+						aria-expanded="false"
+						aria-controls="honor-list"
+						data-progressive-toggle
+						data-expand-label={`查看全部 ${items.length} 项奖项`}
+						data-collapse-label="收起历年奖项"
+					>
+						<>
+							<span data-progressive-label>查看全部 {items.length} 项奖项</span>
+							<span class="toggle-icon" aria-hidden="true">
+								↓
+							</span>
+						</>
+					</button>
+				</div>
+			)
 		}
-	</ul>
+	</div>
 </section>

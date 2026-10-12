@@ -18,14 +18,17 @@ import {
 } from '../data/covteam';
 
 const stats: StatItem[] = [
-	{ label: '研究方向', value: `${directions.length}+` },
-	{ label: '历史奖项', value: `${achievements.length}+` },
-	{ label: '现役成员', value: `${activeMembers.length}+` },
-	{ label: '退役成员', value: `${retiredMembers.length}+` },
+	{ label: '研究方向', value: `${directions.length}` },
+	{ label: '收录奖项', value: `${achievements.length}` },
+	{ label: '现役成员', value: `${activeMembers.length}` },
+	{ label: '退役成员', value: `${retiredMembers.length}` },
 ];
 ---
 
-<Layout title="Covteam 团队主页" description="Covteam 网络安全实验室团队主页">
+<Layout
+	title="Covteam 团队主页"
+	description="西华大学 Covteam 网络安全兴趣小组，成立于 2005 年。了解研究方向、比赛成绩、团队成员与招新信息。"
+>
 	<SiteNav />
 
 	<main id="top" class="team-page" tabindex="-1">
@@ -34,18 +37,18 @@ const stats: StatItem[] = [
 		<AchievementsSection items={achievements} />
 		<MembersSection
 			id="member"
-			kicker="Members"
+			kicker="03 / Members"
 			title="现役成员"
-			description="这里优先展示目前仍在团队中活跃、持续投入方向学习与建设的成员。"
+			description="一起学习、组队比赛，也各有各的研究方向。认识现在的队友。"
 			items={activeMembers}
 			initialVisible={8}
 		/>
 		<RecruitmentSection recruitment={recruitment} />
 		<MembersSection
 			id="retired"
-			kicker="Alumni"
+			kicker="05 / Alumni"
 			title="退役成员"
-			description="感谢曾经并肩作战的每一位成员，团队的气质由你们共同塑造。"
+			description="曾在这里钻研、分享和并肩作战的队友。谢谢你们留下的经验和故事。"
 			items={retiredMembers}
 			initialVisible={8}
 		/>
