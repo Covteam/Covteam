@@ -39,6 +39,5 @@ jobs:
           publish_dir: ./dist
           publish_branch: gh-pages
           force_orphan: true
-          cname: covteam-site.nacocx.top  
+          # cname: covteam-site.nacocx.top  
           # 我暂停了域名解析, 需要请换成自己的域名, 并且配置astro.config.mjs
-          # 我换回来啦，打不开请注释掉cname行
