@@ -16,3 +16,11 @@
 ## 2026-10-12 · 本地合并
 
 - 用户授权将 `codex/taste-redesign` 提交并合并到本地 `main`。保留远程 push 禁止约束。
+
+## 2026-11-03 · 前端性能与资源优化
+
+- 成员头像迁移到 `src/assets/avatars/`，通过 `astro:assets` 输出 56px 1x/2x WebP；34 张头像传输量由约 5 MB 降至约 160 KB。
+- `members.ts` 的 `image` 字段改为文件名，新增 `src/data/avatars.ts` 统一解析；文件缺失时构建报错，移除运行时裂图兜底脚本。
+- 导航 Logo 与 favicon 改由 125 KB PNG 源图生成小尺寸 WebP/PNG，新增 apple-touch-icon。
+- 头像 `alt` 置空（姓名已在相邻标题中），避免读屏重复朗读；viewport 补充 `initial-scale=1`。
+- 删除未使用的 Astro 模板残留（`favicon.svg`、`astro.svg`、`background.svg`）；新增 `sharp` 依赖。

@@ -40,9 +40,11 @@ Git Page: https://covteam.github.io/Covteam/
 ├── public/
 │   ├── favicon.ico
 │   ├── favicon.svg
-│   └── img/                        # 团队图片、Logo、历史素材
+│   └── img/                        # 原样发布的图片（Hero SVG、分享图、历史素材）
 ├── src/
-│   ├── assets/                     # 由 Astro 处理的静态资源
+│   ├── assets/                     # 由 Astro 构建时压缩的图片
+│   │   ├── avatars/                # 成员头像（构建为 WebP）
+│   │   └── brand/                  # 导航 Logo 与 favicon 源图
 │   ├── components/
 │   │   ├── SiteNav.astro           # 顶部导航
 │   │   └── team/
@@ -78,8 +80,10 @@ Git Page: https://covteam.github.io/Covteam/
   分别维护站点内容和成员资料，由 `src/data/covteam.ts` 统一导出。
 - `src/components/team/`
   存放首页各个内容区块组件，便于拆分维护。
+- `src/assets/avatars/`
+  存放成员头像。构建时由 `astro:assets` + sharp 裁剪为 56px（含 2x）WebP，原图不会进入产物。
 - `public/img/`
-  存放团队图片素材，页面通过 `/img/...` 路径直接引用。
+  存放无需处理、原样发布的图片素材，页面通过 `/img/...` 路径直接引用。
 
 ## 本地开发
 
@@ -119,7 +123,7 @@ pnpm astro -- --help
 
 ## 维护建议
 
-- 新增成员时修改 `src/data/members.ts`；奖项、方向与招新信息修改 `src/data/site.ts`
+- 新增成员时把头像放入 `src/assets/avatars/`，并在 `src/data/members.ts` 的 `image` 字段填写文件名（如 `'Spiral.jpg'`，留空使用默认头像；文件名写错会导致构建失败）；奖项、方向与招新信息修改 `src/data/site.ts`
 - 调整首页结构时，优先在 `src/components/team/` 中拆分和维护
 - 如果后续要清理图片资源，建议统一 `public/img/` 中的命名风格
 
