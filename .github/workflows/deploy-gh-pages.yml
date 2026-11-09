@@ -39,5 +39,6 @@ jobs:
           publish_dir: ./dist
           publish_branch: gh-pages
           force_orphan: true
-          # cname: covteam-site.nacocx.top  
+          cname: www.covteam.org  
           # 我暂停了域名解析, 需要请换成自己的域名, 并且配置astro.config.mjs
+          # 比赛奖金买的域名 3年(2029-11-09) 过期
