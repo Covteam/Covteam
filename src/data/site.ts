@@ -66,7 +66,7 @@ export const footerGroups: FooterGroup[] = [
 	},
 	{
 		title: '其他资源',
-		links: [{ href: 'mailto:covteam@yeah.net', label: '联系我们' }],
+		links: [{ href: 'mailto:contact@covteam.org', label: '联系我们' }],
 	},
 ];
 
